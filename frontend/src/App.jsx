@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Landing from "./components/Landing";
-import Products from "./components/Products";
-import Checkout from "./components/Checkout";
+import Landing from "./components/Landing.jsx";
+import Products from "./components/Products.jsx";
+import Checkout from "./components/Checkout.jsx";
 
 export default function App() {
   return (
