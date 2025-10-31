@@ -39,7 +39,7 @@ export default function App() {
     getUserRegion();
   }, []);
 
-  // set context once it's all metadata are ready
+  // set context once all metadata are ready
   useEffect(() => {
     if (ldClient && userEmail && userRegion) {
       const newContext = {
