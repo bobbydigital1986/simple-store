@@ -3,12 +3,17 @@ import ReactDOM from "react-dom/client";
 import { asyncWithLDProvider } from "launchdarkly-react-client-sdk";
 import App from "./App.jsx";
 import "./index.css";
+import Observability, { LDObserve } from '@launchdarkly/observability';
+import SessionReplay, { LDRecord } from '@launchdarkly/session-replay';
 
 
 
 (async () => {
   const LDProvider = await asyncWithLDProvider({
-    clientSideID: "69028e023e78d10a8301ad2c"
+    clientSideID: "69028e023e78d10a8301ad2c",
+    options: {
+      plugins: [ new Observability(), new SessionReplay() ]
+    }
   });
 
   const root = ReactDOM.createRoot(document.getElementById("root"));

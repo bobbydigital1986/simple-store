@@ -29,7 +29,7 @@ export default function App() {
       try {
         const res = await fetch('https://ipapi.co/json/');
         const data = await res.json();
-        console.log('Region detected:', data.region);
+        // console.log('Region detected:', data.region);
         setUserRegion(data.region);
       } catch (error) {
         console.error('Failed to fetch region:', error);
@@ -41,6 +41,7 @@ export default function App() {
 
   // set context once all metadata are ready
   useEffect(() => {
+    console.log("User", userEmail)
     if (ldClient && userEmail && userRegion) {
       const newContext = {
         kind: "multi",
@@ -54,10 +55,10 @@ export default function App() {
         }
       };
 
-      console.log('Updating LD context:', newContext);
+      // console.log('Updating LD context:', newContext);
       
       ldClient.identify(newContext, null, () => {
-        console.log("New context's flags available");
+        // console.log("New context's flags available");
       });
     }
   }, [ldClient, userEmail, userRegion]);
