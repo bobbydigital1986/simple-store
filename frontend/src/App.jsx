@@ -17,7 +17,18 @@ export default function App() {
     const emails = [
       "alice@example.com",
       "bob@example.com",
-      "charlie@example.com"
+      "charlie@example.com",
+      "derek@example.com",
+      "eleanor@example.com",
+      "fred@example.com",
+      "greg@example.com",
+      "henry@example.com",
+      "ivan@example.com",
+      "jake@example.com",
+      "kevin@example.com",
+      "laura@example.com",
+      "mark@example.com",
+      "nelly@example.com"
     ];
     const randomIndex = Math.floor(Math.random() * emails.length);
     setUserEmail(emails[randomIndex]);

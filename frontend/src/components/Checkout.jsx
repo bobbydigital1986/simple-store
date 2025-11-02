@@ -1,13 +1,24 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useLDClient } from "launchdarkly-react-client-sdk";
 
 export default function Checkout() {
   const location = useLocation();
   const navigate = useNavigate();
+  const ldClient = useLDClient();
   const [showPopup, setShowPopup] = useState(false);
+  // Accept either `selectedProducts` (from Products) or `purchasedProducts`
   const selectedProducts = location.state?.selectedProducts || [];
 
   const handlePay = () => {
+      // track payment click and number of items selected for payment
+    try {
+      ldClient?.track("payment_clicked", selectedProducts.length)
+      console.log("Tracked payment_clicked", "itemCount:", selectedProducts.length)
+    } catch (err) {
+      console.error("Failed to track payment_clicked:", err);
+    }
+
     setShowPopup(true);
   };
 
