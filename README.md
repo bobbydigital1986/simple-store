@@ -11,23 +11,36 @@ A tiny example app demonstrating client-side feature flags with LaunchDarkly.
 
 2. Install dependencies:
 
-	# backend
-	cd backend
-	npm install
+- **Backend**
 
-	# in a second terminal window
-	cd ../frontend
-	npm install
+  ```bash
+  cd backend
+  npm install
+  ```
+
+- **In a second terminal window (frontend)**
+
+  ```bash
+  cd ../frontend
+  npm install
+  ```
+
 
 3. Start the apps (two terminals):
 
-	# terminal 1 - backend (listens on port 8080)
+- **Terminal 1 — backend (listens on port 8080)**
+
+	```bash
 	cd backend
 	npm start
+	```
 
-	# terminal 2 - frontend (Vite dev server)
+- **Terminal 2 — frontend (Vite dev server)**
+
+	```bash
 	cd frontend
 	npm run start
+	```
 
 4. Open your browser to http://localhost:5173
 
